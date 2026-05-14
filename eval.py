@@ -23,12 +23,7 @@ from transformers import DistilBertForSequenceClassification, TrainingArguments,
 from sklearn.metrics import classification_report
 
 from utils import compute_metrics
-
-# ── Configuration ──────────────────────────────────────────────────────────────
-CACHED_MODEL_DIR = 'distilbert-reviews-genres'
-DEVICE_NAME = 'mps'        # change to 'cuda' or 'cpu' as needed
-EVAL_REPORT_PATH = 'eval_report.json'
-# ───────────────────────────────────────────────────────────────────────────────
+from config import CACHED_MODEL_DIR, DEVICE_NAME, EVAL_REPORT_PATH
 
 
 def main():
