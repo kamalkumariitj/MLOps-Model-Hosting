@@ -12,6 +12,12 @@ import argparse
 import sys
 import time
 
+import os
+import certifi
+
+os.environ["REQUESTS_CA_BUNDLE"] = certifi.where()
+os.environ["SSL_CERT_FILE"] = certifi.where()
+
 
 def run_stage(name, fn):
     print(f'\n{"=" * 60}')
