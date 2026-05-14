@@ -21,29 +21,7 @@ import pickle
 from transformers import DistilBertForSequenceClassification, TrainingArguments, Trainer
 
 from utils import compute_metrics
-
-# ── Configuration ──────────────────────────────────────────────────────────────
-MODEL_NAME = 'distilbert-base-cased'
-DEVICE_NAME = 'mps'        # change to 'cuda' (GPU) or 'cpu' as needed
-CACHED_MODEL_DIR = 'distilbert-reviews-genres'
-
-TRAINING_ARGS = dict(
-    num_train_epochs=3,
-    per_device_train_batch_size=10,
-    per_device_eval_batch_size=16,
-    learning_rate=5e-5,
-    warmup_steps=100,
-    weight_decay=0.01,
-    output_dir='./results',
-    logging_dir='./logs',
-    logging_steps=100,
-    eval_strategy='steps',
-    save_strategy='steps',
-    save_steps=500,
-    load_best_model_at_end=True,
-    report_to=[],           # W&B integration added in Task 4
-)
-# ───────────────────────────────────────────────────────────────────────────────
+from config import MODEL_NAME, DEVICE_NAME, CACHED_MODEL_DIR, TRAINING_ARGS
 
 
 def main():
